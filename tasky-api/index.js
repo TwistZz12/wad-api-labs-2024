@@ -2,7 +2,7 @@ import express from 'express';
 import taskRoutes from './api/tasks/index.js';
 import dotenv from 'dotenv';
 import './db';
-
+import usersRouter from './api/users';
 
 dotenv.config();
 
@@ -26,3 +26,5 @@ app.listen(port, () => {
 });
 
 app.use(errHandler);
+
+app.use('/api/users', usersRouter);
