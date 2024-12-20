@@ -3,6 +3,7 @@ import taskRoutes from './api/tasks/index.js';
 import dotenv from 'dotenv';
 import './db';
 import usersRouter from './api/users';
+import cors from 'cors';
 
 dotenv.config();
 
@@ -24,6 +25,8 @@ app.use('/api/tasks', taskRoutes);
 app.listen(port, () => {
   console.log(`Server running at port ${port}`);
 });
+
+app.use(cors());
 
 app.use(errHandler);
 
